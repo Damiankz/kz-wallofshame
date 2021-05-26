@@ -46,4 +46,4 @@ app.use("/shame", shameRouter);
 app.use("/person", personRouter);
 
 
-app.listen(3000, () => console.log("server up"));
+app.listen(process.env.PORT, () => console.log("server up"));
