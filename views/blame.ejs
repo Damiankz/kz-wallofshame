@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wall Of Shame</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("screen.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 100vh;
+        width: 100%;
+        background-position: center;
+        background-color: black;
+        font-family: "Roboto", sans-serif;
+      }
+      .logo {
+        background-image: url("logo.svg");
+        text-align: center;
+        display: block;
+        width: 25%;
+        height: 53%;
+        margin: 20px auto 0;
+        background-repeat: no-repeat;
+      }
+      .btn {
+        background-color: #a2009c;
+        color: #ffffff;
+        padding: 15px 50px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        opacity: 0.9;
+        margin: 10px 17px 0;
+        display: inline-block;
+        width: max-content;
+        border: 1px solid white;
+        border-radius: 5px;
+      }
+      .btn.btn-white {
+        background-color: white;
+        color: black;
+      }
+      .blame-form {
+        text-align: center;
+        margin-top: 10px;
+      }
+      #author, #quote {
+        width: 25%;
+        opacity: 0.6;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        -webkit-appearance: none;
+        cursor: pointer;
+      }
+      #quote {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo"></div>
+    <form action="/shame/web" method="POST" class="blame-form">
+      <%- include('_form_fields') %>
+    </form>
+  </body>
+</html>

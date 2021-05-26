@@ -1,0 +1,23 @@
+GET http://localhost:3000/shame
+
+###
+POST http://localhost:3000/shame
+Content-Type: application/json
+
+{
+    "author": "damian",
+    "quote": "I'm conected 3"
+}
+
+###
+GET http://localhost:3000/shame/damian
+
+###
+DELETE http://localhost:3000/shame/6090c68ac71e124a9878505b
+
+###
+GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000/person/
