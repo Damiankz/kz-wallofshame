@@ -6,8 +6,7 @@ const Shame = require("./models/shame");
 const Person = require("./models/person");
 const personRouter = require("./routes/person");
 
-const uri =
-  "mongodb+srv://admin:admin@wallofshame.d9pcl.mongodb.net/WallOfShame?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI || "mongodb+srv://admin:admin@wallofshame.d9pcl.mongodb.net/WallOfShame?retryWrites=true&w=majority";
 
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
