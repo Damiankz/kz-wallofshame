@@ -24,27 +24,19 @@
         width: 100%;
         background-position: center;
         background-color: black;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
       }
       .logo {
         background-image: url("logo.svg");
-        text-align: center;
-        display: block;
         width: 100px;
         height: 100px;
-        margin: 20px auto 0;
         background-repeat: no-repeat;
       }
       .toaster {
         background-image: url("toaster.svg");
         width: 150px;
         height: 108px;
-        display: block;
         background-repeat: no-repeat;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%);
-        top: 50%;
       }
       .quote,
       .person {
@@ -59,9 +51,11 @@
       }
       .portrait {
         width: 85px;
-        margin: 110px auto 0;
-        display: block;
         border: 2px solid #a2009c;
+        position: absolute;
+        left: 50%;
+    transform: translatex(-50%);
+    z-index: -1
       }
       .slide-top {
         -webkit-animation: slide-top 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
@@ -72,22 +66,22 @@
 
       @-webkit-keyframes slide-top {
         0% {
-          -webkit-transform: translateY(0);
-          transform: translateY(0) rotate(0);
+          -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%,0) rotate(0);
         }
         100% {
-          -webkit-transform: translateY(-100px);
-          transform: translateY(-100px) rotate(15deg);
+          -webkit-transform: translate(-50%,-70px);
+          transform: translate(-50%,-70px) rotate(15deg);
         }
       }
       @keyframes slide-top {
         0% {
-          -webkit-transform: translateY(0);
-          transform: translateY(0) rotate(0);
+          -webkit-transform: translate(-50%,0);
+          transform: translate(-50%,0) rotate(0);
         }
         100% {
-          -webkit-transform: translateY(-100px);
-          transform: translateY(-100px) rotate(15deg);
+          -webkit-transform: translate(-50%,-70px);
+          transform: translate(-50%,-70px) rotate(15deg);
         }
       }
       .btn {
@@ -105,15 +99,41 @@
         border: 1px solid white;
         border-radius: 5px;
       }
+      .grid-container {
+        display:grid;
+        padding: 20px;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100%;
+      }
+      .grid-header {
+        display: grid;
+        justify-items: center;
+      }
+      .grid-content-2{
+        display: grid;
+        justify-items: center;
+      }
     </style>
   </head>
   <body>
-      <div class="logo"></div>
-      <h1 class="quote">"<%= shame.quote %>"</h1>
-      <h3 class="person"><%= shame.author %></h3>
-      <img class="portrait slide-top" src=<%= person.portrait %> alt="" />
-      <div class="toaster"></div>
-      <a class="btn" href="/">Next</a>
-      <h3 class="quote">The shortest path to be desvinculado</h3>
+    <div class="wrapper grid-container">
+      <div class="grid-header">
+        <div class="logo grid-item"></div>
+      </div>
+      <div class="grid-content">
+        <h1 class="quote grid-item">"<%= shame.quote %>"</h1>
+        <h3 class="person grid-item"><%= shame.author %></h3>
+      </div>
+      <div class="grid-content-2">
+        <img class="portrait slide-top" src=<%= person.portrait %> alt="" />
+        <div class="toaster grid-item"></div>
+      </div>
+      
+      <div class="grid-item">
+        <a class="btn" href="/">Next</a>
+        <h3 class="quote">The shortest path to be desvinculado</h3>
+      </div>
+      
+    </div>
   </body>
 </html>
